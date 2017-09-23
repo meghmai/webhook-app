@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-import urllib
+from urllib.parse import urlparse, urlencode
+from urllib.request import urlopen, Request
+from urllib.error import HTTPError
 import json
 import os
 import wikipedia
