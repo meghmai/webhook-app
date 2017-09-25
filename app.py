@@ -35,7 +35,7 @@ def processRequest(req):
     #for wolfram alpha
     if req.get("result").get("action") == "web.search":
         client = wolframalpha.Client("LAQHLR-46U5HRLXQ6")
-        john = client.query(req.get("result").get("resolvedQuery"))
+        john = client.query(req.get("result").get("q"))
         answer = next(john.results).text
         return {
         "speech": answer,
