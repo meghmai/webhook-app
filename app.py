@@ -108,8 +108,8 @@ def processRequest(req):
             return res
         
     #for wikipedia
-    elif req.get("result").get("action") == "wiki":    
-        param = req.get("result").get("parameters").get("any")    
+    elif req.get("result").get("action") == "web.search":    
+        param = req.get("result").get("parameters").get("q")    
         fin = wikipedia.summary(param,sentences=2)    
         #res = makeWebhookResult(fin)
         return {
