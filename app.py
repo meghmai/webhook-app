@@ -111,7 +111,12 @@ def processRequest(req):
     elif req.get("result").get("action") == "wiki":    
         param = req.get("result").get("parameters").get("any")    
         fin = wikipedia.summary(param,sentences=2)    
-        res = makeWebhookResult(fin)
+        #res = makeWebhookResult(fin)
+        return {
+        "speech": fin,
+        "displayText": fin,
+        "source": "From Wikipedia"
+        }
         return res
             
     #for local time
