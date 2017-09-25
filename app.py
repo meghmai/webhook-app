@@ -33,7 +33,7 @@ def webhook():
    
 def processRequest(req):    
     #for wolfram alpha
-    if req.get("result").get("action") == "web.search":
+    if req.get("result").get("action") == "wolph":
         client = wolframalpha.Client("LAQHLR-46U5HRLXQ6")
         john = client.query(req.get("result").get("q"))
         answer = next(john.results).text
@@ -57,7 +57,7 @@ def processRequest(req):
     
     #for news
     #takes news randomly from different sources use newsapi docs for more info
-    elif req.get("result").get("action") == "news":
+    elif req.get("result").get("resolvedQuery") == "news":
         y = random.randint(1,6)
         if y == 1:
             r = requests.get('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=1412588264c447da83a7c75f1749d6e8')
@@ -108,7 +108,7 @@ def processRequest(req):
             return res
         
     #for wikipedia
-    elif req.get("result").get("action") == "wiki":    
+    elif req.get("result").get("action") == "web.search":    
         param = req.get("result").get("parameters").get("q")    
         fin = wikipedia.summary(param,sentences=2)    
         #res = makeWebhookResult(fin)
