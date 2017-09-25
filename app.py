@@ -33,7 +33,7 @@ def webhook():
    
 def processRequest(req):    
     #for wolfram alpha
-    if req.get("result").get("action") == "web.search":
+    if req.get("result").get("action") == "wolph":
         client = wolframalpha.Client("LAQHLR-46U5HRLXQ6")
         john = client.query(req.get("result").get("q"))
         answer = next(john.results).text
@@ -129,7 +129,7 @@ def processRequest(req):
         return res
                    
     #for weather (yahoo api)
-    elif req.get("result").get("action") == "yahooWeatherForecast":
+    elif req.get("result").get("action") == "weather":
         baseurl = "https://query.yahooapis.com/v1/public/yql?"
         yql_query = makeYqlQuery(req)
         if yql_query is None:
