@@ -144,7 +144,7 @@ def processRequest(req):
     #for dictionary
     else:
         dictionary = PyDictionary()
-        ch = req.get('result').get('parameters').get('word')
+        ch = req.get('result').get('parameters').get('any')
         test = req.get('result').get('parameters').get('dictionary')
         if test == 'antonym':
             res = dictionary.antonym(ch)
