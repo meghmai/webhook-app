@@ -34,7 +34,7 @@ def webhook():
 def processRequest(req):    
     #for wolfram alpha
     if req.get("result").get("action") == "web.search":
-        client = wolframalpha.Client("4393W5-W6E838H957")
+        client = wolframalpha.Client("LAQHLR-46U5HRLXQ6")
         john = client.query(req.get("result").get("resolvedQuery"))
         answer = next(john.results).text
         return {
@@ -108,7 +108,7 @@ def processRequest(req):
             return res
         
     #for wikipedia
-    elif req.get("result").get("action") == "web.search":    
+    elif req.get("result").get("action") == "wiki":    
         param = req.get("result").get("parameters").get("q")    
         fin = wikipedia.summary(param,sentences=2)    
         #res = makeWebhookResult(fin)
