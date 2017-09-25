@@ -207,7 +207,7 @@ def makeWebhookResult(fin):
     speech = fin
     return {
         "speech": speech,
-        "displayText": speech,
+        "displayText": "hi",
         
         # "contextOut": [],
         "source": "from jkthaha webhook"
